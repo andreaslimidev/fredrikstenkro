@@ -2,16 +2,18 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
+import { ArrowLeft, RotateCcw } from "react-feather"
 
 const Container = styled.div`
   display: flex;
-  padding-top: 3rem;
+  padding-top: 7rem;
   font-family: Eczar, serif !important;
 
   @media (max-width: ${props => props.theme.mobile}) {
       flex-direction: column;
       font-size: 0.7rem;
       align-items: center;
+      padding-top: 2rem;
 
     
 `
@@ -20,7 +22,7 @@ const ImageContainer = styled.div`
   width: 300px;
 
   @media (max-width: ${props => props.theme.mobile}) {
-    width: 500px;
+    width: 100%;
     left: 0;
   }
 `
@@ -44,7 +46,7 @@ const Content = styled.div`
   }
 
   p {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     padding-right: 1.5rem;
   }
 `
@@ -57,7 +59,35 @@ const Image = styled(Img)`
 
   @media (max-width: ${props => props.theme.mobile}) {
     position: static;
+    width: 100%;
+    margin-top: 3rem;
     left: 0;
+  }
+`
+
+const Button = styled.button`
+  background-color: ${props => props.theme.main};
+  border: 0;
+  padding: 0.4rem 2rem;
+  padding-right: 1.2rem;
+  font-weight: 500;
+  color: #fefefe;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  transition: all 0.2s linear;
+
+  :focus {
+    outline: none;
+  }
+
+  :active {
+  }
+
+  :hover {
+    background-color: #701919;
+    transform: scale(1.05);
+    cursor: pointer;
   }
 `
 
@@ -87,6 +117,16 @@ export const Landing = () => {
           mangfoldig spisested for alle <span>livets anledninger</span>. Kontakt
           oss for en uforpliktende samtale om din neste <span>begivenhet</span>.
         </p>
+        <Button>
+          Kontakt oss{" "}
+          <ArrowLeft
+            style={{
+              transform: `rotate(180deg)`,
+              marginBottom: `3px`,
+              marginLeft: `12px`,
+            }}
+          />
+        </Button>
       </Content>
       <ImageContainer>
         <Image fluid={logo.placeholderImage.childImageSharp.fluid} />

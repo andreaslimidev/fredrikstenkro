@@ -15,7 +15,7 @@ const Nav = styled.div`
   @media (max-width: ${props => props.theme.mobile}) {
     flex-direction: column;
     position: absolute;
-    height: 100%;
+    height: 1600px;
     background-color: white;
     z-index: 999;
     justify-content: start;

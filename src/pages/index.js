@@ -6,13 +6,16 @@ import Image from "../components/image"
 import SEO from "../components/seo"
 import { Topbar } from "../components/topbar"
 import { Landing } from "../components/landing"
+import { Tjenester } from "../components/tjenester"
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Hjem" />
     <Landing />
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
+    <Tjenester />
+
+    {/* <Link to="/page-2/">Go to page 2</Link> <br />
+    <Link to="/using-typescript/">Go to "Using TypeScript"</Link> */}
   </Layout>
 )
 
