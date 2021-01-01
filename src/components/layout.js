@@ -12,6 +12,18 @@ import { useStaticQuery, graphql } from "gatsby"
 import { Topbar } from "./topbar"
 import "./layout.css"
 import { ThemeProvider } from "styled-components"
+import styled from "styled-components"
+import { createGlobalStyle } from "styled-components"
+
+const Container = styled.div`
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 1rem 1.3rem 1.45rem;
+
+  @media (max-width: 802px) {
+    padding-top: 4rem;
+  }
+`
 
 const Layout = ({ children }) => {
   // global theme for whole site
@@ -33,13 +45,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <div
-          style={{
-            margin: `0 auto`,
-            maxWidth: 960,
-            padding: `0 1.3rem 1.45rem`,
-          }}
-        >
+        <Container>
           <Topbar />
           <main>{children}</main>
           <footer
@@ -51,7 +57,7 @@ const Layout = ({ children }) => {
             {` `}
             <a href="https://www.gatsbyjs.com">Gatsby</a>
           </footer>
-        </div>
+        </Container>
       </ThemeProvider>
     </>
   )
