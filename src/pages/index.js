@@ -7,12 +7,14 @@ import SEO from "../components/seo"
 import { Topbar } from "../components/topbar"
 import { Landing } from "../components/landing"
 import { Tjenester } from "../components/tjenester"
+import { About } from "../components/about"
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Hjem" />
     <Landing />
     <Tjenester />
+    <About />
 
     {/* <Link to="/page-2/">Go to page 2</Link> <br />
     <Link to="/using-typescript/">Go to "Using TypeScript"</Link> */}

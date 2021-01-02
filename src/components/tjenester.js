@@ -39,7 +39,7 @@ const Container = styled.div`
 `
 
 const Cloud = styled.div`
-  height: 500px;
+  height: 400px;
   width: 100%;
   position: relative;
   margin-top: 3rem;

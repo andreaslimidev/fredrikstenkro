@@ -36,7 +36,7 @@ const Content = styled.div`
 
   h3 {
     font-size: 1.1rem;
-    color: red;
+    color: ${props => props.theme.main};
     margin-bottom: 0.4rem;
     font-weight: 400;
   }
