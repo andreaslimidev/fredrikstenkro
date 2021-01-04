@@ -8,6 +8,7 @@ import { Topbar } from "../components/topbar"
 import { Landing } from "../components/landing"
 import { Tjenester } from "../components/tjenester"
 import { About } from "../components/about"
+import { Contact } from "../components/contact"
 
 const IndexPage = () => (
   <Layout>
@@ -15,6 +16,7 @@ const IndexPage = () => (
     <Landing />
     <Tjenester />
     <About />
+    <Contact />
 
     {/* <Link to="/page-2/">Go to page 2</Link> <br />
     <Link to="/using-typescript/">Go to "Using TypeScript"</Link> */}

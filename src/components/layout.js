@@ -42,21 +42,37 @@ const Layout = ({ children }) => {
     }
   `)
 
+  const Footer = styled.footer`
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    span {
+      font-weight: 600;
+    }
+
+    p :last-child {
+      margin-top: 7px;
+    }
+  `
+
   return (
     <>
       <ThemeProvider theme={theme}>
         <Container>
           <Topbar />
           <main>{children}</main>
-          <footer
-            style={{
-              marginTop: `2rem`,
-            }}
-          >
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.com">Gatsby</a>
-          </footer>
+          <Footer>
+            <div>
+              © {new Date().getFullYear()}, Laget av <span>Andreas Limi</span>
+              {` `}
+            </div>
+            <p>
+              <span>andreaslimidev@gmail.com</span>
+            </p>
+          </Footer>
         </Container>
       </ThemeProvider>
     </>

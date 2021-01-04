@@ -56,10 +56,15 @@ const Card = styled.div`
   text-align: left;
 
   h2 {
-    font-size: 2rem;
+    font-size: 3rem;
   }
 
-  p {
+  @media (max-width: ${props => props.theme.mobile}) {
+    margin: 0 auto;
+
+    :not(:first-child) {
+      margin-top: 2rem;
+    }
   }
 `
 
@@ -75,6 +80,17 @@ const LeftColumn = styled.div`
       position: absolute;
       left: 30%;
       top: 49%;
+      border: 2px solid #fefefe;
+    }
+  }
+
+  @media (max-width: ${props => props.theme.mobile}) {
+    position: static;
+    display: flex;
+    flex-direction: column;
+
+    div {
+      position: static !important;
     }
   }
 `
@@ -82,7 +98,33 @@ const RightColumn = styled.div`
   div {
     max-width: 500px;
     margin-left: 4rem;
+    padding-top: 6rem;
+    position: relative;
+
+    h2 {
+      font-size: 3rem;
+      position: absolute;
+      top: 7%;
+      left: -21%;
+
+      span {
+        color: black;
+      }
+    }
+
+    @media (max-width: ${props => props.theme.mobile}) {
+      margin: 0;
+      margin-top: 2rem;
+
+      h2 {
+        position: static;
+        span {
+          color: #fefefe;
+        }
+      }
   }
+
+  
 `
 
 export const About = () => (
@@ -109,7 +151,9 @@ export const About = () => (
       </LeftColumn>
       <RightColumn>
         <Card>
-          <h2>Hvor?</h2>
+          <h2>
+            <span>Tra</span>disjoner
+          </h2>
           <p>
             Integer ac risus unge, pharetra lacus sed, convallis lacus. Nunc
             vitae mi congue, vestibulum nisi sit amet, fleksible felis. Integer
