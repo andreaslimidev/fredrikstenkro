@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import { ArrowLeft, RotateCcw } from "react-feather"
+import { Link } from "react-scroll"
 
 const Container = styled.div`
   display: flex;
@@ -107,7 +108,7 @@ export const Landing = () => {
   `)
 
   return (
-    <Container>
+    <Container id="landing">
       <Content>
         <h3>Åpent hver søndag 12:00 - 16:00</h3>
         <h1>Velkommen til Fredriksten Kro</h1>
@@ -117,16 +118,18 @@ export const Landing = () => {
           mangfoldig spisested for alle <span>livets anledninger</span>. Kontakt
           oss for en uforpliktende samtale om din neste <span>begivenhet</span>.
         </p>
-        <Button>
-          Kontakt oss{" "}
-          <ArrowLeft
-            style={{
-              transform: `rotate(180deg)`,
-              marginBottom: `3px`,
-              marginLeft: `12px`,
-            }}
-          />
-        </Button>
+        <Link spy={true} smooth={true} to="contact">
+          <Button>
+            Kontakt oss{" "}
+            <ArrowLeft
+              style={{
+                transform: `rotate(180deg)`,
+                marginBottom: `3px`,
+                marginLeft: `12px`,
+              }}
+            />
+          </Button>
+        </Link>
       </Content>
       <ImageContainer>
         <Image fluid={logo.placeholderImage.childImageSharp.fluid} />

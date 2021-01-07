@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import Image from "../components/image"
@@ -7,6 +6,7 @@ import SEO from "../components/seo"
 import { Topbar } from "../components/topbar"
 import { Landing } from "../components/landing"
 import styled from "styled-components"
+import { Link } from "react-scroll"
 
 const Container = styled.div`
   display: flex;
@@ -31,6 +31,7 @@ const Container = styled.div`
 
   span {
     color: ${props => props.theme.main};
+    cursor: pointer;
   }
 
   @media (max-width: ${props => props.theme.mobile}) {
@@ -132,7 +133,7 @@ const Cloud = styled.div`
 
 export const Tjenester = () => {
   return (
-    <Container>
+    <Container id="tjenester">
       <h1>
         Hvilke <span>tjenester</span> kan vi tilby?
       </h1>
@@ -153,7 +154,13 @@ export const Tjenester = () => {
       <div>
         <h2>Ser du ikke ditt neste arrangement her?</h2>
         <h3>
-          Ta <span>kontakt</span> da vel!
+          Ta{" "}
+          <span>
+            <Link spy={true} smooth={true} to="contact">
+              kontakt
+            </Link>
+          </span>{" "}
+          da vel!
         </h3>
       </div>
     </Container>

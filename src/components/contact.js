@@ -31,7 +31,11 @@ const Content = styled.div`
   h1 {
     font-size: 2rem;
     margin-top: 0;
-    font-weight: 500;
+    font-weight: 600;
+
+    span {
+      color: ${props => props.theme.main};
+    }
   }
 
   h3 {
@@ -89,9 +93,11 @@ export const Contact = () => {
   `)
 
   return (
-    <Container>
+    <Container id="contact">
       <Content>
-        <h1>Kom i kontakt med oss</h1>
+        <h1>
+          Kom i <span>kontakt</span> med oss
+        </h1>
         <p>
           Vi gleder oss til å høre om din neste <span>begivenhet</span>. Kontakt
           oss for en uforpliktende samtale.

@@ -1,4 +1,3 @@
-import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React, { useState } from "react"
 import styled from "styled-components"
@@ -6,6 +5,9 @@ import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import Image from "./image"
 import img from "../images/gatsby-icon.png"
+import { Link } from "react-scroll"
+import { Link as Linker } from "gatsby"
+import { globalHistory } from "@reach/router"
 
 const Nav = styled.div`
   display: flex;
@@ -14,7 +16,7 @@ const Nav = styled.div`
 
   @media (max-width: ${props => props.theme.mobile}) {
     flex-direction: column;
-    position: absolute;
+    position: fixed;
     height: 1600px;
     background-color: white;
     z-index: 999;
@@ -34,9 +36,14 @@ const Nav = styled.div`
       width: 300px;
     }
   }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
 `
 
-export const Items = ({ open }) => {
+export const Items = ({ open, setOpen, location }) => {
   const Image = styled(Img)`
     margin: 0;
   `
@@ -46,10 +53,15 @@ export const Items = ({ open }) => {
     display: flex;
     margin-top: 1rem;
     text-align: center;
+    font-size: 1.1rem;
 
     li {
       list-style-type: none;
       font-weight: 600;
+
+      :hover {
+        cursor: pointer;
+      }
     }
 
     li:not(:last-child) {
@@ -84,25 +96,83 @@ export const Items = ({ open }) => {
     }
   `)
 
+  const closeMenu = () => setOpen(false)
+
+  // change links if not on indexpage
+  const path = globalHistory.location.pathname
+
+  if (path === "/") {
+    return (
+      <Nav open={open}>
+        <List>
+          <li>
+            <Link spy={true} onClick={closeMenu} smooth={true} to="landing">
+              Intro
+            </Link>
+          </li>
+          <li>
+            <Link onClick={closeMenu} spy={true} smooth={true} to="tjenester">
+              Tjenester
+            </Link>
+          </li>
+        </List>
+        <div
+          style={{
+            width: `220px`,
+            marginBottom: `1.45rem`,
+            marginLeft: `5rem`,
+          }}
+        >
+          <Image fluid={logo.placeholderImage.childImageSharp.fluid} />
+        </div>
+        <List>
+          <li>
+            <Linker to="/galleri/">Galleri</Linker>
+          </li>
+          <li>
+            <Link onClick={closeMenu} spy={true} smooth={true} to="about">
+              Om oss
+            </Link>
+          </li>
+          <li>
+            <Link onClick={closeMenu} spy={true} smooth={true} to="contact">
+              Kontakt oss
+            </Link>
+          </li>
+        </List>
+      </Nav>
+    )
+  }
+
   return (
     <Nav open={open}>
       <List>
-        <li>Intro</li>
-        <li>Tjenester</li>
+        <li>
+          <Linker to="/">Intro</Linker>
+        </li>
+        <li>
+          <Linker to="/#tjenester">Tjenester</Linker>
+        </li>
       </List>
       <div
         style={{
           width: `220px`,
           marginBottom: `1.45rem`,
-          marginLeft: `1.8rem`,
+          marginLeft: `5rem`,
         }}
       >
         <Image fluid={logo.placeholderImage.childImageSharp.fluid} />
       </div>
       <List>
-        <li>Galleri</li>
-        <li>Om oss</li>
-        <li>Kontakt oss</li>
+        <li>
+          <Linker to="/galleri/">Galleri</Linker>
+        </li>
+        <li>
+          <Linker to="/#about">Om oss</Linker>
+        </li>
+        <li>
+          <Linker to="/#contact">Kontakt oss</Linker>
+        </li>
       </List>
     </Nav>
   )

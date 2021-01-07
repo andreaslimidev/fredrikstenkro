@@ -16,7 +16,7 @@ export const Topbar = () => {
 
   return (
     <Container>
-      <Items open={open} />
+      <Items open={open} setOpen={setOpen} />
       <Burger open={open} setOpen={setOpen} />
     </Container>
   )

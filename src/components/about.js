@@ -61,6 +61,7 @@ const Card = styled.div`
 
   @media (max-width: ${props => props.theme.mobile}) {
     margin: 0 auto;
+    max-width: 500px;
 
     :not(:first-child) {
       margin-top: 2rem;
@@ -70,6 +71,7 @@ const Card = styled.div`
 
 const LeftColumn = styled.div`
   position: relative;
+  width: 100%;
 
   div {
     :nth-child(1) {
@@ -128,7 +130,7 @@ const RightColumn = styled.div`
 `
 
 export const About = () => (
-  <Container>
+  <Container id="about">
     <h1>
       Litt om oss på <span>Kroa</span>
     </h1>
@@ -137,15 +139,15 @@ export const About = () => (
         <Card>
           <h2>Hvem?</h2>
           <p>
-            Integer ac risus unge, pharetra lacus sed, convallis lacus. Nunc
-            vitae mi congue, vestibulum nisi sit amet, fleksible felis.
+            Kroa har vært drevet i en årrekke av Magne og Solfrid. De får også
+            god hjelp fra en rekke andre kroverter.
           </p>
         </Card>
         <Card>
           <h2>Hvor?</h2>
           <p>
-            Integer ac risus unge, pharetra lacus sed, convallis lacus. Nunc
-            vitae mi congue, vestibulum nisi sit amet, fleksible felis.
+            Kroa ligger i hjertet av Fredriksten Festning, rett over gressplenen
+            fra parkeringen.
           </p>
         </Card>
       </LeftColumn>

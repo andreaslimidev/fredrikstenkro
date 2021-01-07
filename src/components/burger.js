@@ -4,8 +4,6 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 
-import { Items } from "./items"
-
 const Button = styled.button`
   position: absolute;
   right: 2rem;
@@ -52,6 +50,7 @@ const Button = styled.button`
 
   @media (max-width: ${props => props.theme.mobile}) {
     display: flex;
+    position: fixed;
   }
 `
 
